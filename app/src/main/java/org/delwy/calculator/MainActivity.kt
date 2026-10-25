@@ -431,7 +431,7 @@ fun convText(x: Double): String {
 }
 
 
-enum class Mode(val title: String) {
+enum class Mode(val titleRes: Int) {
     CALC(R.string.mode_calc),
     WEIGHT(R.strig.mode_weight),
     TEMP(R.string.mode_gradus),
