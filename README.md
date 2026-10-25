@@ -1,6 +1,4 @@
-# delwy-calc
-
-**delwy Calculator**
+# Delwy Calculator
 
 **delwy Calculator** is an Android calculator application built with **Kotlin** and **Jetpack Compose**.
 
