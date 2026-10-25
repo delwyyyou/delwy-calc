@@ -60,9 +60,10 @@ import java.math.BigDecimal
 import java.math.MathContext
 import java.math.RoundingMode
 import kotlin.math.*
+import androidx.compose.ui.res.stringResource
 
 val Inter = FontFamily(Font(R.font.inter_extrabold, FontWeight.ExtraBold))
-const val ERR = "Ошибка"
+const val ERR = R.string.error
 
 
 class MainActivity : ComponentActivity() {
