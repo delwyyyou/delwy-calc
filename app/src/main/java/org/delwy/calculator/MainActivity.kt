@@ -433,7 +433,7 @@ fun convText(x: Double): String {
 
 enum class Mode(val titleRes: Int) {
     CALC(R.string.mode_calc),
-    WEIGHT(R.strig.mode_weight),
+    WEIGHT(R.string.mode_weight),
     TEMP(R.string.mode_gradus),
     TIME(R.string.mode_time)
 }
@@ -1118,7 +1118,7 @@ fun MenuItem(m: Mode, selected: Boolean, index: Int, menuOpen: Boolean, onClick:
             .padding(start = 20.dp),
         contentAlignment = Alignment.CenterStart
     ) {
-        BasicText(m.title, style = ts(col, 15.sp), maxLines = 1)
+        BasicText(stringResource(m.titleRes), style = ts(col, 15.sp), maxLines = 1)
     }
 }
 
