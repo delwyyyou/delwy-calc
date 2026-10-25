@@ -60,6 +60,7 @@ import java.math.BigDecimal
 import java.math.MathContext
 import java.math.RoundingMode
 import kotlin.math.*
+import androidx.compose.ui.res.stringResource
 
 val Inter = FontFamily(Font(R.font.inter_extrabold, FontWeight.ExtraBold))
 const val ERR = "Ошибка"
@@ -430,36 +431,52 @@ fun convText(x: Double): String {
 }
 
 
-enum class Mode(val title: String) {
-    CALC("Калькулятор"),
-    WEIGHT("Конвертер веса"),
-    TEMP("Конвертер градусов"),
-    TIME("Конвертер времени")
+enum class Mode(val titleRes: Int) {
+    CALC(R.string.mode_calc),
+    WEIGHT(R.string.mode_weight),
+    TEMP(R.string.mode_gradus),
+    TIME(R.string.mode_time)
 }
 
-class Meas(val abbr: String, val name: String, val toBase: (Double) -> Double, val fromBase: (Double) -> Double)
+class Meas(
+    val abbrRes: Int,
+    val nameRes: Int,
+    val toBase: (Double) -> Double,
+    val fromBase: (Double) -> Double
+)
 
-private fun unit(abbr: String, name: String, f: Double) = Meas(abbr, name, { it * f }, { it / f })
+private fun unit(abbrRes: Int, nameRes: Int, f: Double) =
+    Meas(abbrRes, nameRes, { it * f }, { it / f })
 
 val UNITS: Map<Mode, List<Meas>> = mapOf(
     Mode.WEIGHT to listOf(
-        unit("кг", "Килограммы", 1.0),
-        unit("г", "Граммы", 0.001),
-        unit("т", "Тонны", 1000.0),
-        unit("lb", "Фунты", 0.45359237),
-        unit("oz", "Унции", 0.028349523125)
+        unit(R.string.unit_kg, R.string.unit_kg_full, 1.0),
+        unit(R.string.unit_g, R.string.unit_g_full, 0.001),
+        unit(R.string.unit_t, R.string.unit_t_full, 1000.0),
+        unit(R.string.unit_lb, R.string.unit_lb_full, 0.45359237),
+        unit(R.string.unit_oz, R.string.unit_oz_full, 0.028349523125)
     ),
     Mode.TEMP to listOf(
-        Meas("°C", "Цельсий", { it }, { it }),
-        Meas("°F", "Фаренгейт", { (it - 32) * 5.0 / 9.0 }, { it * 9.0 / 5.0 + 32 }),
-        Meas("K", "Кельвин", { it - 273.15 }, { it + 273.15 })
+        Meas(R.string.unit_celsius, R.string.unit_celsius_full, { it }, { it }),
+        Meas(
+            R.string.unit_fahrenheit,
+            R.string.unit_fahrenheit_full,
+            { (it - 32) * 5.0 / 9.0 },
+            { it * 9.0 / 5.0 + 32 }
+        ),
+        Meas(
+            R.string.unit_kelvin,
+            R.string.unit_kelvin_full,
+            { it - 273.15 },
+            { it + 273.15 }
+        )
     ),
     Mode.TIME to listOf(
-        unit("с", "Секунды", 1.0),
-        unit("мин", "Минуты", 60.0),
-        unit("ч", "Часы", 3600.0),
-        unit("дн", "Дни", 86400.0),
-        unit("нед", "Недели", 604800.0)
+        unit(R.string.unit_second, R.string.unit_second_full, 1.0),
+        unit(R.string.unit_minute, R.string.unit_minute_full, 60.0),
+        unit(R.string.unit_hour, R.string.unit_hour_full, 3600.0),
+        unit(R.string.unit_day, R.string.unit_day_full, 86400.0),
+        unit(R.string.unit_week, R.string.unit_week_full, 604800.0)
     )
 )
 
@@ -881,7 +898,7 @@ fun ConverterView(model: ConvModel, mode: Mode) {
             Modifier.padding(start = 24.dp, top = 28.dp).height(48.dp).width(max(maxWidth.value - 32f - 72f, 1f).dp),
             contentAlignment = Alignment.CenterStart
         ) {
-            BasicText(mode.title, style = ts(p.primary, d.fs(17f)), maxLines = 1)
+            BasicText(stringResource(mode.titleRes), style = ts(p.primary, d.fs(17f)), maxLines = 1)
         }
         key(model) {
             Column(
@@ -889,7 +906,14 @@ fun ConverterView(model: ConvModel, mode: Mode) {
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 model.units.forEachIndexed { i, u ->
-                    UnitRow(u.abbr, u.name, texts[i], model.active == i, i, rowH) { model.select(i) }
+                    UnitRow(
+                      stringResource(u.abbrRes),
+                      stringResource(u.nameRes),
+                      texts[i],
+                      model.active == i,
+                      i,
+                      rowH
+                    ) { model.select(i) }
                 }
             }
         }
@@ -1117,7 +1141,7 @@ fun MenuItem(m: Mode, selected: Boolean, index: Int, menuOpen: Boolean, onClick:
             .padding(start = 20.dp),
         contentAlignment = Alignment.CenterStart
     ) {
-        BasicText(m.title, style = ts(col, 15.sp), maxLines = 1)
+        BasicText(stringResource(m.titleRes), style = ts(col, 15.sp), maxLines = 1)
     }
 }
 
