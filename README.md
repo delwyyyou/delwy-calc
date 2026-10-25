@@ -24,7 +24,7 @@
 Clone the repository:
 
 ```bash
-git clone https://github.com/delwyyyou/delwy-calc
+git clone https://github.com/delwyyyou/delwy-calc.git
 cd delwy-calc
 ```
 
