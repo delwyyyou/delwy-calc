@@ -8,7 +8,7 @@ android {
     namespace = "org.delwy.calculator"
     compileSdk = 36
     defaultConfig {
-        applicationId = "org.delwy.calculatoe"
+        applicationId = "org.delwy.calculator"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
