@@ -5,10 +5,10 @@ plugins {
 }
 
 android {
-    namespace = "com.example.calculator"
+    namespace = "org.delwy.calculator"
     compileSdk = 36
     defaultConfig {
-        applicationId = "com.example.calculator"
+        applicationId = "org.delwy.calculatoe"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
