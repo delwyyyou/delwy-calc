@@ -63,7 +63,7 @@ import kotlin.math.*
 import androidx.compose.ui.res.stringResource
 
 val Inter = FontFamily(Font(R.font.inter_extrabold, FontWeight.ExtraBold))
-val ERR = R.string.error
+const val ERR = "Ошибка"
 
 
 class MainActivity : ComponentActivity() {
