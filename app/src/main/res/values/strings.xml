@@ -1,3 +1,7 @@
 <resources>
     <string name="error">Ошибка</string>
+    <string name="mode_calc">Калькулятор</string>
+    <string name="mode_weight">Конвертер веса</string>
+    <string name="mode_gradus">Конвертер градусов</string>
+    <string name="mode_time">Конвертер времени</string>
 </resources>

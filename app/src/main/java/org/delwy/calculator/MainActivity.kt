@@ -432,10 +432,10 @@ fun convText(x: Double): String {
 
 
 enum class Mode(val title: String) {
-    CALC("Калькулятор"),
-    WEIGHT("Конвертер веса"),
-    TEMP("Конвертер градусов"),
-    TIME("Конвертер времени")
+    CALC(R.string.mode_calc),
+    WEIGHT(R.strig.mode_weight),
+    TEMP(R.string.mode_gradus),
+    TIME(R.string.mode_time)
 }
 
 class Meas(val abbr: String, val name: String, val toBase: (Double) -> Double, val fromBase: (Double) -> Double)
@@ -882,7 +882,7 @@ fun ConverterView(model: ConvModel, mode: Mode) {
             Modifier.padding(start = 24.dp, top = 28.dp).height(48.dp).width(max(maxWidth.value - 32f - 72f, 1f).dp),
             contentAlignment = Alignment.CenterStart
         ) {
-            BasicText(mode.title, style = ts(p.primary, d.fs(17f)), maxLines = 1)
+            BasicText(stringResource(mode.titleRes), style = ts(p.primary, d.fs(17f)), maxLines = 1)
         }
         key(model) {
             Column(
