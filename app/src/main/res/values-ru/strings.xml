@@ -1,0 +1,40 @@
+<resources>
+    
+    <string name="app_nazvanie">delwy calc</string>
+    <string name="error">Ошибка</string>
+    
+    <string name="mode_calc">Калькулятор</string>
+    <string name="mode_weight">Конвертер веса</string>
+    <string name="mode_gradus">Конвертер градусов</string>
+    <string name="mode_time">Конвертер времени</string>
+    
+    <string name="unit_kg">кг</string>
+    <string name="unit_kg_full">Килограммы</string>
+    <string name="unit_g">г</string>
+    <string name="unit_g_full">Граммы</string>
+    <string name="unit_t">т</string>
+    <string name="unit_t_full">Тонны</string>
+    <string name="unit_lb">lb</string>
+    <string name="unit_lb_full">Фунты</string>
+    <string name="unit_oz">oz</string>
+    <string name="unit_oz_full">Унции</string>
+
+    <string name="unit_celsius">°C</string>
+    <string name="unit_celsius_full">Цельсий</string>
+    <string name="unit_fahrenheit">°F</string>
+    <string name="unit_fahrenheit_full">Фаренгейт</string>
+    <string name="unit_kelvin">K</string>
+    <string name="unit_kelvin_full">Кельвин</string>
+
+    <string name="unit_second">с</string>
+    <string name="unit_second_full">Секунды</string>
+    <string name="unit_minute">мин</string>
+    <string name="unit_minute_full">Минуты</string>
+    <string name="unit_hour">ч</string>
+    <string name="unit_hour_full">Часы</string>
+    <string name="unit_day">дн</string>
+    <string name="unit_day_full">Дни</string>
+    <string name="unit_week">нед</string>
+    <string name="unit_week_full">Недели</string>
+    
+</resources>
