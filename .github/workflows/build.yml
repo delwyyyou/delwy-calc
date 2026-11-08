@@ -25,5 +25,5 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: calculator-realese-apk
-          path: app/build/outputs/apk/debug/*.apk
+          name: calculator-release-apk
+          path: app/build/outputs/apk/release/*.apk
