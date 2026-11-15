@@ -20,10 +20,10 @@ jobs:
         with:
           gradle-version: "8.13"
 
-      - name: Build debug APK
+      - name: Build release APK
         run: gradle assembleRelease --no-daemon
 
       - uses: actions/upload-artifact@v4
         with:
-          name: calculator-realese-apk
-          path: app/build/outputs/apk/debug/*.apk
+          name: calculator-release-apk
+          path: app/build/outputs/apk/release/*.apk
